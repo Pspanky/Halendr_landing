@@ -1,0 +1,361 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.contentBlock {
+    width: 100%;
+    height: 630px;
+}
+
+.top {
+    background-color: #FF4032;
+    box-shadow: 5px 0px 5px black;
+}
+
+.middle {
+    height: 630px;
+    background-image: url(cBackground1.jpg);
+    background-position: center;
+    background-size: 1300px;
+    z-index: -1;
+}
+
+.bottom {
+    background-color: #FF4032;
+    height: 730px;
+}
+
+.topText{
+    color: white;
+    position: relative;
+    margin: auto;
+    text-align: center;
+    top: 220px;
+    width: 80%;
+    font-size: 22px;
+    background-color: #FF4032;
+}
+
+.launchText{
+    color: white;
+    position: relative;
+    margin: auto;
+    top: 280px;
+    text-align: center;
+    width: 400px;
+    height: 80px;
+    font-size: 28px;
+    border-style: solid;
+    padding: 20px;
+}
+
+.logoImage{
+    position: relative;
+    top: 180px;
+    display: block;
+    margin: auto;
+    width: 40%;
+}
+
+.test{
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    display: block;
+}
+
+.colorFix{
+    position: absolute;
+    background-color: #FF4032;
+    right: 0;
+    width: 50px;
+    height: 510px;
+}
+
+.emailInput{
+  padding-top: 40px;
+  position: relative;
+}
+
+#signup{
+    left: 100px;
+}
+
+#signupcontainer{
+    top: 160px;
+    position: relative;
+    width: 500px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+}
+
+.whiteBlock{
+    position: absolute;
+    top: 1920px;
+    width: 100%;
+    height: 120px;
+    background-color: white;
+}
+
+.copyright{
+    color: #FF4032;
+    position: relative;
+    bottom: 0;
+    font-size: 16px;
+    width: 120px;
+    top: 85px;
+    left: 30px;
+    overflow: hidden;
+    font-family: serif;
+}
+
+#footerLogo{
+    display: block;
+    margin: auto;
+    height: 70px;
+    position: relative;
+    left: 0px;
+}
+
+.inputStyle {
+  width: 240;
+  background-color: white;
+  border: none;
+  height: 50;
+  font-size: 18;
+  padding-left: 10;
+}
+
+.modalContainer{
+    width: 500px;
+    height: 295px;
+    background-color: white;
+    padding: 15px;
+    font-family: sans-serif;
+    box-shadow: 1px 1px 3px black;
+    border-radius: 3px;
+}
+
+.divider{
+    position: relative;
+    width: 95%;
+    margin: auto;
+    height: 1px;
+    background-color: rgba(0,0,0,.1);
+    margin-top: 10px;
+}
+
+.modalText{
+    position: relative;
+    top: 20px;
+    width: 85%;
+    left: 30px;
+}
+
+.modalHeader{
+    font-size: 20px;
+    color: #FF4032;
+}
+
+.modalButton{
+    position: relative;
+    background-color: #FF4032; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 28px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 3px;
+    left: 360px;
+    top: 35px;
+    border
+}
+
+.warningText{
+  color: white;
+  padding: 0;
+  font-size: 18px;
+}
+
+.inputsHolder{
+  position: relative;
+  top: 100px;
+  left: 30px;
+}
+
+.collageRows{
+    width: 600px;
+    height: 200px;
+    position: absolute;
+    padding: 0;
+    margin: 0;
+}
+
+.collageRow{
+    position: relative;
+    display: block
+    width: 100%;
+    height: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+imageList{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    list-style: none;
+    display: inline;
+}
+
+@media only screen and (max-width: 530px)  {
+    .inputsHolder{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        left: 60px;
+        padding: 0;
+    }
+
+    #signupcontainer{
+        width: 80%;
+    }
+
+    .topText{
+        color: white;
+        position: relative;
+        margin: auto;
+        text-align: center;
+        top: 190px;
+        width: 80%;
+        font-size: 20px;
+
+    }
+
+
+    .launchText{
+        width: 80%;
+    }
+
+}
+
+@media only screen and (max-width: 500px)  {
+    .inputsHolder{
+        left: 45px;
+    }
+}
+
+@media only screen and (max-width: 490px)  {
+    .inputsHolder{
+        left: 50px;
+    }
+}
+
+@media only screen and (max-width: 480px)  {
+    .inputsHolder{
+        left: 45px;
+    }
+
+    .whiteBlock{
+        height: 150px;
+    }
+}
+
+@media only screen and (max-width: 470px)  {
+    .inputsHolder{
+        left: 50px;
+    }
+
+    .topText{
+        top: 150px;
+    }
+}
+
+@media only screen and (max-width: 460px)  {
+    .inputsHolder{
+        left: 45px;
+    }
+
+    .copyright{
+        top: 115px;
+        margin: auto;
+        left: 5px;
+    }
+
+}
+
+@media only screen and (max-width: 450px)  {
+    .inputsHolder{
+        left:40px;
+    }
+
+    .launchText{
+        font-size: 24px;
+        padding-top: 10px;
+    }
+}
+
+
+@media only screen and (max-width: 430px)  {
+    .inputsHolder{
+        left: 25px;
+    }
+}
+
+@media only screen and (max-width: 410px)  {
+    .inputsHolder{
+        left: 15px;
+    }
+}
+
+@media only screen and (max-width: 390px)  {
+    .inputsHolder{
+        left: 10px;
+    }
+}
+
+@media only screen and (max-width: 381px)  {
+    .launchText{
+        height: 100px;
+        padding-top: 15px;
+    }
+
+    inputsHolder{
+      left: 7px;
+    }
+}
+
+@media only screen and (max-width: 370px)  {
+    .inputsHolder{
+        left: 3px;
+    }
+}
+
+@media only screen and (max-width: 360px)  {
+    .inputsHolder{
+        left: -15px;
+    }
+}
+
+@media only screen and (max-width: 340px)  {
+    .inputsHolder{
+        left: -10px;
+    }
+}
+
+@media only screen and (max-width: 330px)  {
+    .inputsHolder{
+        left: -12px;
+    }
+}
+
+@media only screen and (max-width: 340px)  {
+    .inputsHolder{
+        left: -15px;
+    }
+}

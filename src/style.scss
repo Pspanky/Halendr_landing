@@ -19,7 +19,17 @@ body {
   }
 }
 
-
 .active {
   color: pink;
+}
+
+.emailInput{
+  padding-top: 40px;
+  position: relative;
+}
+
+.test {
+  height: 100px;
+  width: 100px;
+  background-color: red;
 }
