@@ -24,7 +24,7 @@ const inputStyle = {
 const buttonStyle = {
   height: 65,
   position: 'relative',
-  width: 110,
+  width: 120,
   border: 'none',
   fontSize: 18,
   top: -3,
@@ -33,7 +33,11 @@ const buttonStyle = {
   borderWidth: 2,
   borderColor: '#FF4032',
   backgroundColor: '#FF4032',
-  color: 'white',
+  backgroundImage: 'url(http://mupit.icm.jhu.edu/MuPIT_Interactive/images/load.gif)',
+  backgroundSize: '30px',
+  backgroundRepeat: 'no-repeat',
+  backgroundPosition: 'center',
+  color: '#FF4032',
   left: 5,
 };
 
@@ -51,18 +55,12 @@ const styles = {
     borderColor: '#FF4032',
     backgroundColor: '#FF4032',
     color: 'white',
-    left: 5 },
+    left: 5,
+  },
   test: {
     height: 80,
   },
 };
-
-// const modal = {
-//   position: 'absolute',
-//   height: 500,
-//   width: 500,
-//   backgroundColor: 'black',
-// };
 
 @Radium
 export default class SignupContainer extends Component {
@@ -74,6 +72,7 @@ export default class SignupContainer extends Component {
       submitted: false,
       badEmail: false,
       waiting: false,
+      userExists: false,
     };
 
     this.onEmailChange = this.onEmailChange.bind(this);
@@ -85,18 +84,29 @@ export default class SignupContainer extends Component {
 
   onEmailChange(event) {
     this.setState({ userEmail: event.target.value });
+    this.setState({ userExists: false });
     console.log(this.state.userEmail);
   }
 
+  resetWarning() {
+    this.setState({ userExists: false });
+    this.setState({ badEmail: false });
+  }
 
   sendSignUpEmail() { // eslint-disable-line
     if (validator.validate(this.state.userEmail)) {
       console.log('email is being posted');
       this.setState({ waiting: true });
       return axios.post(`${ROOT_URL}`, { email: this.state.userEmail }).then((response) => {
-        this.setState({ submitted: true });
-        console.log('email was sent');
-        this.setState({ waiting: false });
+        if (response.data === 'user exists') {
+          this.setState({ userExists: true });
+          this.setState({ waiting: false });
+        } else {
+          this.setState({ submitted: true });
+          this.setState({ userExists: false });
+          console.log(response.data);
+          this.setState({ waiting: false });
+        }
       }).catch((error) => {
         console.log(error);
       });
@@ -118,6 +128,12 @@ export default class SignupContainer extends Component {
       return (
         <div className="warningText">
           <i>Please enter a valid email address!</i>
+        </div>
+      );
+    } else if (this.state.userExists) {
+      return (
+        <div className="warningText">
+          <i>This email has already been registered.</i>
         </div>
       );
     } else {
@@ -157,7 +173,7 @@ export default class SignupContainer extends Component {
       return (
         <div className="inputsHolder">
           <input style={inputStyle} type="text" placeholder="Enter your email" onChange={this.onEmailChange} />
-          <button style={buttonStyle}> Sending... </button>
+          <button style={buttonStyle}> S </button>
         </div>);
     }
   }
@@ -191,22 +207,20 @@ export default class SignupContainer extends Component {
                 <br />
             </b>
             <br />
-                   Were not quite ready to launch yet but we will be soon. Sign up today.
+                   We’re not quite ready to launch yet but we will be soon. Sign up today.
                 </div>
         </div>
 
         <div className="contentBlock middle">
           <div id="signupcontainer">
-            <div id="signup">
-              {this.renderReactComponents()}
-            </div>
+            {this.renderReactComponents()}
           </div>
         </div>
 
         <div className="contentBlock bottom">
           <div className="launchText">
-                  Launching 01 July 2017
-                </div>
+            <p>Launching 01 September 2017</p>
+          </div>
           <div className="whiteBlock">
             <div className="copyright">
                        © Halendr 2017
